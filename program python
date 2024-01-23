@@ -1,0 +1,1038 @@
+1.simple intrest 
+def calculate_simple_interest(years,principal,is_senior_citizen):
+    rate_of_interest=0.12 if is_senior_citizen == 'y' else 0.10
+    return principal*years*rate_of_interest
+years=int(input("enter no.of years:"))
+principal=int(input("enter the principal amount:"))
+is_senior_citizen=input("is customer the senior citizen(y/n)").lower()
+simple_interest=calculate_simple_interest(years,principal,is_senior_citizen)
+print("simple interest is:",simple_interest)
+
+
+def max_words(sentences):
+    max_word_count = 0
+    for sentence in sentences:
+        words = sentence.split()
+        word_count = len(words)
+        max_word_count = max(max_word_count,word_count)
+    return max_word_count
+sentences=["alice and bob love apple", "i think so too", "this is great thanks very much"]
+result=max_words(sentences)
+print("output:",result)
+
+3.maximum words in sentence
+
+def is_palindrome(x):
+    return str(x) == str(x)[::-1]
+n=int(input("enter the number:"))
+if is_palindrome(n):
+    print("it is a palindrome")
+else:
+    print("it is not a palindrome")
+4.Palindrome
+
+m=int(input("enter the value of m:"))
+n=int(input("enter the value of n:"))
+k=int(input("enter the value of k:"))
+print("values are..")
+for index in range(m,n+1,k):
+    print(index)
+5.skipping a number
+
+def is_leap_year(year):
+    if year%400 == 0:
+        return True
+    else:
+        return False
+try:
+    year=int(input("enter year:"))
+    if year<0:
+        raise ValueError ("please enter a non-negative integer")
+    if is_leap_year(year):
+        print("it is a leap year")
+    else:
+        print("it is not a leap year")
+except ValueError as e:
+print(f"error:{e}")
+
+
+
+
+def is_leap_year(year):
+    """
+    Check if a year is a leap year.
+
+    :param year: The year to check
+    :return: True if it's a leap year, False otherwise
+    """
+    if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+        return True
+    else:
+        return False
+
+def find_previous_leap_year(current_year):
+    """
+    Find the previous leap year.
+
+    :param current_year: The current year
+    :return: The previous leap year
+    """
+    year = current_year - 1
+    while not is_leap_year(year):
+        year -= 1
+    return year
+
+def find_next_leap_year(current_year):
+    """
+    Find the next leap year.
+
+    :param current_year: The current year
+    :return: The next leap year
+    """
+    year = current_year + 1
+    while not is_leap_year(year):
+        year += 1
+    return year
+
+# Example usage:
+current_year = int(input("Enter the current year: "))
+
+if is_leap_year(current_year):
+    print(f"{current_year} is a leap year.")
+else:
+    print(f"{current_year} is not a leap year.")
+
+previous_leap_year = find_previous_leap_year(current_year)
+next_leap_year = find_next_leap_year(current_year)
+
+print(f"The previous leap year is: {previous_leap_year}")
+print(f"The next leap year is: {next_leap_year}")
+
+6.leap year
+
+
+list1=[1,2,4]
+list2=[1,3,4]
+list3=list1+list2
+list3.sort()
+print(list3)
+
+7.merge 
+
+8.ddef add_matrices(matrix1,matrix2):
+9.    result_matrix = [[0,0],[0,0]]
+10.    for i in range(2):
+11.        for j in range(2):
+12.            result_matrix[i][j]=matrix1[i][j]+matrix2[i][j]
+13.    return result_matrix
+14.matrix1=[[1,2],[3,4]]
+15.matrix2=[[5,6],[7,8]]
+16.result=add_matrices(matrix1,matrix2)
+17.for row in result:
+18.    print(row)
+19.matrix addition
+
+names=[]
+while True:
+    name=input("enter the name:")
+    if name.lower() == 'done':
+        break
+    names.append(name)
+order=input("order (A for ascending or D for descending)").upper()
+if order == 'A':
+    names.sort()
+    print("sorted names are:")
+    for name in names:
+        print(name)
+elif order=='D':
+    names.sort(reverse=True)
+    print("sorted names are:")
+    for name in names:
+        print(name)
+else:
+print("invalid choice")
+ascending or descending
+
+3 DIGITS AND FIND ALL THE COMBINATIONS 
+from itertools import permutations
+def generate_combinations(digits):
+    digit_permutations=permutations(digits)
+    for permutation in digit_permutations:
+        print("".join(permutation))
+input_digits=input("enter three digits:")
+if len(input_digits) == 3 and input_digits.isdigit():
+    generate_combinations(input_digits)
+else:
+    print("invalid input")
+
+    no of vowels
+    def count_vowels(input_string):
+    vowels="aeiouAEIOU"
+    count=0
+    for char in input_string:
+        if char in vowels:
+            count+=1
+    return count
+input_string=input("enter a string")
+result=count_vowels(input_string)
+print(result)
+
+def calculate_square_and_cube(n):
+    square = n ** 2
+    cube = n ** 3
+    return square,cube
+try:
+    input_number=float(input("enter the number:"))
+    square,cube=calculate_square_and_cube(input_number)
+    print(f"square number:{square}")
+    print(f"cube number:{cube}")
+except ValueError as e:
+    print(f"error:{e}")
+21.square and cube
+total_users=int(input("enter total no.of users:"))
+staff_users=int(input("enter the no.of staff users:"))
+non_teaching_staff=staff_users // 3
+student_users=total_users-staff_users-non_teaching_staff
+print("student users are:",student_users)
+
+22.Users
+a="!@#$%"
+b=""
+for i in a:
+    b=i+b
+    print(b)
+23.reverse a word using loop
+from statistics import mean,median,mode
+array=[1.6, 1.8, 2.7, 1.6, 2.3, 2.1, .19]
+mean_value=mean(array)
+median_value=median(array)
+mode_value=mode(array)
+print("mean:",mean_value)
+print("median:",median_value)
+print("mode:",mode_value)
+24.Meanmodemedian
+def smaller_num(num):
+    result=[]
+    for i in range(len(num)):
+        count=sum(1 for j in num if j<num[i])
+        result.append(count)
+    return result
+num=[8,1,2,2,3]
+output=smaller_num(num)
+print("output:",output)
+25.smaller number than current
+def reverse_number(num):
+    reversed_number=0
+    while num>0:
+        digit=num%10
+        reversed_number=reversed_number * 10 + digit
+        num = num // 10
+    return reversed_number
+original_number=int(input("enter the number:"))
+output_result=reverse_number(original_number)
+print("output:",output_result)
+reverse a number
+
+LENGTH OF LAST WORD:
+def length_of_last_word(s):
+    words = s.split()
+    if words:
+        return len(words[-1])
+    else:
+        return 0
+input_string="hello world"
+result=length_of_last_word(input_string)
+print(result)
+
+word=input("enter a word:")
+sorted_word=''.join(sorted(word,reverse=True))
+print(f"word arranged in reverse order:{sorted_word}")
+sorted
+
+def separate_vowels_and_consonants(input_string):
+    vowels="aeiouAEIOU"
+    vowels_str=""
+    consonants_str=""
+    for char in input_string:
+        if char in vowels:
+            vowels_str = vowels_str+char
+        else:
+            consonants_str = consonants_str + char
+    return vowels_str, consonants_str
+input_string=input("enter a string:")
+vowels,consonants = separate_vowels_and_consonants(input_string)
+print("vowels:",vowels)
+print("consonants",consonants)
+
+
+COMPOSITE NUMBERS BETWEEN A AND B:
+def is_composite(num):
+    if num<4:
+        return False
+    for i in range(2,int(num ** 0.5)+1):
+        if num % i == 0:
+            return True
+    return False
+def find_composites(a,b):
+    composite_numbers = []
+    for num in range(a,b+1):
+        if is_composite(num):
+            composite_numbers.append(num)
+    return composite_numbers
+a = int(input("enter a value:"))
+b = int(input("enter b value:"))
+result = find_composites(a,b)
+print(result)
+    
+
+
+23.def calculate_bonus(salary, grade):
+    """
+    Calculate bonus and total salary for an employee based on grade and salary.
+
+    :param salary: The salary of the employee
+    :param grade: The grade of the employee (A or B)
+    :return: Bonus and total salary
+    """
+    bonus_percentage = 0.05 if grade == 'A' else 0.1
+
+    # Additional 2% bonus if the salary is less than $10,000
+    if salary < 10000:
+        bonus_percentage += 0.02
+
+    bonus = salary * bonus_percentage
+    total_salary = salary + bonus
+
+    return bonus, total_salary
+
+# Example usage:
+grade = input("Enter the grade of the employee (A or B): ")
+salary = float(input("Enter the employee salary: "))
+
+bonus, total_salary = calculate_bonus(salary, grade)
+
+print(f"Salary = {salary}")
+print(f"Bonus = {bonus}")
+print(f"Total to be paid: {total_salary}")
+
+
+LCM AND GCD OF N NUMBERS:
+def find_lcm(x, y):
+    """Function to find the LCM of two numbers."""
+    # Using the formula LCM(x, y) = (x * y) // GCD(x, y)
+    return (x * y) // find_gcd(x, y)
+
+def find_gcd(x, y):
+    """Function to find the GCD of two numbers using Euclidean Algorithm."""
+    while y:
+        x, y = y, x % y
+    return x
+
+# Input
+n = int(input("Enter the value of n: "))
+
+# Initialize LCM and GCD with the first number
+lcm_result = gcd_result = int(input("Number 1 = "))
+
+# Calculate LCM and GCD for the remaining n-1 numbers
+for i in range(2, n + 1):
+    num = int(input(f"Number {i} = "))
+    lcm_result = find_lcm(lcm_result, num)
+    gcd_result = find_gcd(gcd_result, num)
+
+# Output
+print(f"LCM = {lcm_result}")
+print(f"GCD = {gcd_result}")
+
+
+
+
+
+FREQUENCY OF ELEMENT:
+def calculate_frequency(input_list):
+    frequency_dict = {}
+    for element in input_list:
+        frequency_dict[element] = frequency_dict.get(element,0)+1
+    return frequency_dict
+input_list=[1,2,3,4,1,2,3,4]
+result=calculate_frequency(input_list)
+print("frequency of element are:")
+for element,frequency in result.items():
+    print(f"{element}: {frequency}")
+
+
+
+
+CALCULATE:
+def calculate_pow(x,n):
+    return x ** n
+def calculate_add(x,n):
+    return x + n
+def calculate_sub(x,n):
+    return x - n
+def calculate_mul(x,n):
+    return x * n
+def calculate_div(x,n):
+    if n!=0:
+        return x/n
+    else:
+        return "ERROR"
+x=float(input("enter the value of x"))
+n=float(input("enter the value of n"))
+choice=input("choose operation (Pow/Add/Sub/Mul/Div):").lower()
+if choice == "pow":
+    result = calculate_pow(x,n)
+elif choice == "add":
+    result = calculate_add(x,n)
+elif choice == "sub":
+    result = calculate_sub(x,n)
+elif choice == "mul":
+    result = calculate_mul(x,n)
+elif choice == "div":
+    result = calculate_div(x,n)
+else:
+    print("invalid")
+print(result)
+
+
+COUNT PRIME AND COMPOSITE:
+def is_prime(num):
+    if num<2:
+        return False
+    for i in range(2,int(num ** 0.5)+1):
+        if num % i == 0:
+            return False
+    return True
+n = int(input("enter no.of values:"))
+numbers = [int(input(f"enter number {i+1}: ")) for i in range(n)]
+prime_count = 0
+composite_count = 0
+for num in numbers:
+    if is_prime(num):
+        prime_count += 1
+    else:
+        composite_count += 1
+print(f"prime numbers: {prime_count}")
+print(f"composite numbers: {composite_count}")
+
+
+VOTING:
+def check_voting_availibility(age):
+    voting_age =18
+    if age >= 18:
+        print("you are eligible to vote")
+    else:
+        years_left = voting_age - age
+        print(f"you are not eligible to vote.you need to wait for {years_left} more years.")
+try:
+    age = int(input("enter your age:"))
+    check_voting_availibility(age)
+except ValueError:
+    print("invalid input")
+        
+PERFECT NUMBER:
+
+def is_perfect_number(number):
+    return number == sum(i for i in range(1,number) if number % i == 0)
+try:
+    num = int(input("enter a number:"))
+    print(f"{num} is {'a' if is_perfect_number(num) else 'not a'}perfect number.")
+except ValueError:
+print("invalid input")
+
+
+FACTORIAL:
+def calculate_factorial(n):
+    if n<0:
+        return "factorial for negative numbers is not defined"
+    fact = 1
+    for i in range(1,n+1):
+        fact = fact * i
+    return fact
+try:
+    n =int(input("enter a number to calculate its factorial:"))
+    result = calculate_factorial(n)
+    print(f"the factorial of {n} is: {result}")
+except ValueError:
+    print("invvalid")
+
+SORTED ALPHABETICALLY:
+def reverse_alphabetical(word):
+    sorted_word = ''.join(sorted(word,reverse=True))
+    return sorted_word
+input_word = input("enter a word")
+result = reverse_alphabetical(input_word)
+print(result)
+
+
+BINARY TO DECIMAL AND OCTAL:
+binary_number = input("enter a binary number:")
+choice = input("choose conversion (1:DECIMAL , 2:OCTAL):")
+if choice == '1':
+    decimal_result = int(binary_number,2)
+    print(f"decimal number :{decimal_result}")
+elif choice == '2':
+    decimal_result = oct(int(binary_number,2))[2:]
+    print(f"octal number : {octal_result}")
+else:
+    print("invalid")
+
+
+
+FACTORS:
+def count_factors(n):
+    if n<=0:
+        return "invalid"
+    factors_count = 0
+    for i in range(1,n+1):
+        if n % i == 0:
+            factors_count += 1
+    return factors_count
+try:
+    n = int(input("enter a number:"))
+    result = count_factors(n)
+    print(result)
+except ValueError:
+    print("invalid")
+
+
+
+
+SWAPPING:
+def swap_with_temp(a,b):
+    temp = a
+    a = b
+    b =temp
+    return a,b
+def swap_without_temp(a,b):
+    a = a + b
+    b = a - b
+    a = a - b
+    return a,b
+def swap_with_tuple(a,b):
+    a,b = b,a
+    return a,b
+A=int(input("enter the value of a:"))
+B=int(input("enter the value of b:"))
+result_with_temp = swap_with_temp(A,B)
+result_without_temp = swap_without_temp(A,B)
+result_with_tuple = swap_with_tuple(A,B)
+print(f"after swapping(with temp): A={result_with_temp[0]} B={result_with_temp[1]}")
+print(f"after swapping(without temp): A={result_without_temp[0]} B={result_without_temp[1]}")
+print(f"after swapping(with tuple): A={result_with_tuple[0]} B={result_with_tuple[1]}")
+
+
+n = int(input("enter no.of rows:"))
+for i in range(n):
+    for j in range(i+1):
+        print(j+1,end=" ")
+    print()
+
+
+n = int(input("enter no.of rows:"))
+for i in range(n):
+    print('%'*(i+1))
+print()
+
+n = int(input("enter no.of rows:"))
+for i in range(n):
+    for j in range(i+1):
+        print(f"{0.1*j:.1f}",end=" ")
+    print()
+
+n = int(input("enter no.of rows:"))
+for i in range(n):
+    print(' '*(n-i-1),end=" ")
+    for j in range(i+1):
+        print(i+1-j,end=" ")
+    print()
+      
+num=[10,5,20,10]
+for i in range(len(num)):
+    for j in range(i+1):
+        print(num[i],end=' ')
+    print()
+
+         MEDIUM LEVEL ANSWERS
+
+n = int(input("enter no.of rows:"))
+num = float(input("enter the starting number:"))
+for i in range(n):
+    for j in range(i+1):
+        num = num+0.1
+        print("{:.1f}".format(num),end=" ")
+    print()
+
+
+1.fresh_loaves_purchased = int(input("enter the fresh loaves purchased:"))
+old_loaves_purchased = int(input("enter the old loaves purchased:"))
+amount_of_new_loaves =(185 * fresh_loaves_purchased)
+amount_of_old_loaves =((185 * old_loaves_purchased *  60)/100)
+total_amount = amount_of_new_loaves + amount_of_old_loaves
+print("Regular_price : 185.00")
+print(f"amount of new loaves Rs.{amount_of_new_loaves:.2f}")
+print(f"amount of old loaves Rs.{amount_of_old_loaves:.2f}")
+print(f"total amount Rs.{total_amount:.2f}")
+
+
+2.def is_isomorphic(str1,str2):
+    if len(str1) != len(str2):
+        return False
+    else:
+        map1,map2={},{}
+        for i in range(len(str1)):
+            ch1,ch2=str1[i],str2[i]
+        if ch1 not in map1:
+            map1[ch1]=ch2
+        if ch2 not in map2:
+            map2[ch2]= ch1
+        if map1[ch1]!=ch2 or map2[ch2]!=ch1:
+            return False
+        return True
+str1=input("string1=")
+str2=input("string2=")
+print(is_isomorphic(str1,str2))
+
+3.def maxarea(A,Len):
+    area = 0
+    for i in range(Len):
+        for j in range(i+1,Len):
+            area = max(area,min(A[j],A[i])*(j-i))
+    return area
+a=[1,5,4,3]
+len1 = len(a)
+print(maxarea(a,len1))
+
+4.def climb_stairs(n):
+    if n== 1:
+        return 1
+    elif n ==2:
+        return 2
+    ways=[0]*(n+1)
+    ways[1]=1
+    ways[2]=2
+    for i in range(3,n+1):
+        ways[i] = ways[i-1]+ways[i-2]
+    return ways[n]
+n=5
+result=climb_stairs(n)
+print(result)
+
+16.def calculate_shipping_charge(items):
+    first_item_charge=750
+    subsequent_item_charge=200
+    if items == 0:
+        return 0
+    elif items == 1:
+        return first_item_charge
+    else:
+        return first_item_charge + (items-1) * subsequent_item_charge
+items=int(input("enter no.of elements:"))
+result = calculate_shipping_charge(items)
+print(result)
+
+
+14 .  a="123456"
+b=""
+for i in a:
+    b=i+b
+    print(b)
+
+
+
+
+
+17.    
+s1="what"
+s2="watch"
+mat = 0
+for i,j in zip(s1,s2):
+    if (i == j):
+        mat = mat + 1
+print(mat)
+    
+18.
+def factorial(n):
+    fact = 1
+    for i in range(1,n+1):
+        fact = fact * i
+    return fact
+def count_factors(n):
+    count = 0
+    for i in range(1,n+1):
+        if n % i == 0:
+            count += 1
+    return count
+n=int(input("enter a number:"))
+result = factorial(n)
+print(result)
+res = count_factors(n)
+print(res)
+    
+13.
+positive_numbers = []
+negative_numbers = []
+while True:
+    try:
+        num = int(input("Enter the number (enter -1 to exit): "))
+        if num == -1:
+            break
+        elif num >= 0:
+            positive_numbers.append(num)
+        else:
+            negative_numbers.append(num)
+    except ValueError:
+        print("Invalid input. Please enter a valid number.")
+average_positive = sum(positive_numbers) / len(positive_numbers) if positive_numbers else 0
+average_negative = sum(negative_numbers) / len(negative_numbers) if negative_numbers else 0
+print(f"The average of negative numbers is: {average_negative:.2f}")
+print(f"The average of positive numbers is: {average_positive:.2f}")
+
+
+
+12.
+lowercase_count = 0
+uppercase_count = 0
+digit_count = 0
+while True:
+    char = input("enter a character:")
+    if char == "*":
+        break
+    if char.islower():
+        lowercase_count += 1
+    elif char.isupper():
+        uppercase_count += 1
+    elif char.isdigit():
+        digit_count += 1
+print(f"Total count of lower case: {lowercase_count}")
+print(f"Total count of upper case: {uppercase_count}")
+print(f"Total count of numbers: {digit_count}")
+
+
+
+11.
+def find_mth_max_and_nth_min(lst,m,n):
+    sorted_lst = sorted(lst)
+    mth_max = sorted_lst[-m]
+    nth_min = sorted_lst[n - 1]
+    return mth_max,nth_min
+numbers=[4,8,2,1,7,3,9,6,5]
+m=2
+n=3
+mth_max , nth_min = find_mth_max_and_nth_min(numbers, m, n)
+sum_result = mth_max + nth_min
+difference_result = mth_max - nth_min
+print(f"The {m}th maximum number is: {mth_max}")
+print(f"The {n}th minimum number is: {nth_min}")
+print(f"The sum is: {sum_result}")
+print(f"The difference is: {difference_result}")
+    
+
+def remove_duplicates(sorted_array):
+    unique_elements = []
+    for element in sorted_array:
+        if not unique_elements or element != unique_elements[-1]:
+            unique_elements.append(element)
+    return unique_elements
+input_array = [15,14,25,14,32,14,31]
+sorted_array = sorted(input_array)
+print(remove_duplicates(sorted_array))
+
+
+
+def is_perfect_square(num):
+    return int(num ** 0.5)**2 == num
+def sum_of_digits(num):
+    return sum(int(digit) for digit in str(num)) < 10
+def perfect_square_with_less_than(lower,upper):
+    result = [ i for i in range(lower,upper+1) if is_perfect_square(i) and sum_of_digits(i)]
+    return result
+lower = int(input("enter a lower range:"))
+upper = int(input("enter a upper range:"))
+print(perfect_square_with_less_than(lower,upper))
+
+
+def create_tuple(lower,upper):
+    tuple_list = [(num,num ** 2) for num in range(lower,upper+1)]
+    return tuple_list
+lower = int(input("enter the lower range:"))
+upper = int(input("enter the upper range:"))
+print(create_tuple(lower,upper))
+
+
+def remove_duplicates(input_list):
+    unique_items = []
+    for item in input_list:
+        if item not in unique_items:
+            unique_items.append(item)
+    return unique_items
+
+# Get user input for the list
+num_elements = int(input("Enter the number of elements in the list: "))
+user_list = [int(input(f"Enter element{i + 1}: ")) for i in range(num_elements)]
+
+# Remove duplicates and display the result
+result_list = remove_duplicates(user_list)
+print("Non-duplicate items:")
+print(result_list)
+
+
+def find_maximum_binary_value(binary1, binary2, binary3):
+    decimals = [int(binary1, 2), int(binary2, 2), int(binary3, 2)]
+    max_decimal = max(decimals)
+    max_binary = bin(max_decimal)[2:]
+    return max_binary
+
+# Get user input for three binary values
+binary1 = input("Enter the first binary value: ")
+binary2 = input("Enter the second binary value: ")
+binary3 = input("Enter the third binary value: ")
+
+# Find and display the maximum binary value
+max_binary = find_maximum_binary_value(binary1, binary2, binary3)
+print("Maximum Binary Value:", max_binary)
+
+
+def remove_vowels(input_string):
+    vowels = "aeiouAEIOU"
+    result_string = "".join(char for char in input_string if char not in vowels)
+    return result_string
+input_string = input("enter the string:")
+print(remove_vowels(input_string))
+
+
+def sum_of_digits(number):
+    return sum(int(digit) for digit in str(number))
+
+# Get user input for a number
+user_number = int(input("Enter a number: "))
+
+# Calculate and display the sum of digits
+result = sum_of_digits(user_number)
+print(f"Sum of digits: {result}")
+
+
+import random
+
+# Input
+A = int(input("Enter A Value: "))
+B = int(input("Enter B Value: "))
+num_elements = int(input("Enter number of elements: "))
+
+# Generate random numbers and append them to a list
+randomized_list = [random.randint(A, B) for _ in range(num_elements)]
+
+# Output
+print("Randomized list is:", randomized_list)
+
+HARD LEVEL QUESTIONS:
+2.
+t=int(input("enter t:"))
+e=[7,0,5,1,3]
+l=[1,2,1,3,4]
+x=[0,0,0,0,0]
+for i in range(t):
+    if t>len(e) or t<len(l):
+        print("out of index")
+    else:
+        x[i] = (x[i-1]+e[i])-l[i]
+        print(x[i],end=" ")
+print(max(x))
+
+10.
+def reverse_words(s):
+    words=s.split()
+    reversed_words = words[::-1]
+    result="".join(reversed_words)
+    return result
+input_str="the sky is blue"
+output=reverse_words(input_str)
+print(output)
+
+
+9.
+def shuffle(l1,l2):
+    result=[]
+    len_l1,len_l2 = len(l1),len(l2)
+    max_len = max(len_l1,len_l2)
+    for i in range(max_len):
+        if i<len(l1):
+            result.append(l1[i])
+        if i<len(l2):
+            result.append(l2[i])
+    return result
+num_elements_l1 = int(input("Enter the number of elements of l1: "))
+l1=[int(input("enter the element:")) for _ in range(num_elements_l1)]
+num_elements_l2 = int(input("Enter the number of elements of l2: "))
+l2=[int(input("enter the element:")) for _ in range(num_elements_l2)]
+shuffled_list = shuffle(l1,l2)
+print(shuffled_list)
+
+
+4.
+def get_season(month,day):
+    if (month == 'Mar' and day >=20) or (month == 'Apr' or month == 'May'):
+        return 'Spring'
+    if (month == 'Jun' and day >=21) or (month == 'Jul' or month == 'Aug'):
+        return 'Summer'
+    if (month == 'Sep' and day >=22) or (month == 'Oct' or month == 'Nov'):
+        return 'Fall'
+    else:
+        return 'Winter'
+input_month=input("enter the month:").capitalize()
+input_day = int(input("enter the date:"))
+season = get_season(input_month[:3],input_day)
+print(season)
+
+
+5.
+def remove_common_words(s1,s2):
+    words_s1 = s1.split()
+    words_s2 = s2.split()
+
+    set_s1 = set(words_s1)
+    set_s2 = set(words_s2)
+
+    common_words = set_s1.intersection(set_s2)
+
+    result_s1 = ''.join(word for word in words_s1 if word not in common_words)
+    result_s2 = ''.join(word for word in words_s2 if word not in common_words)
+
+    return result_s1,result_s2
+s1 = "sky is blue in color"
+s2 = "Raj likes sky blue color"
+result_s1,result_s2 = remove_common_words(s1,s2)
+print(result_s1)
+print(result_s2)
+
+
+3.
+def modify_string(s):
+    freq_dict = {}
+    for char in s:
+        if char in freq_dict:
+            freq_dict[char] += 1
+        else:
+            freq_dict[char] = 1
+
+    modified_string =''
+    for char in s:
+        frequency = freq_dict[char]
+        new_char_ord = (ord(char) - ord('a') + frequency) % 26 + ord('a')
+        modified_string += chr(new_char_ord)
+    return modified_string
+input_string = "ghee"
+output_string = modify_string(input_string)
+print("input:",input_string)
+print("output:",output_string)
+
+6.
+def group_anagrams(strs):
+    anagrams = {}
+    for word in strs:
+        sorted_word = ''.join(sorted(word))
+
+        if sorted_word in anagrams:
+            anagrams[sorted_word].append(word)
+        else:
+            anagrams[sorted_word]=[word]
+    result = list(anagrams.values())
+    return result
+strs=["eat", "tea", "tan", "ate", "nat", "bat"]
+output = group_anagrams(strs)
+print(output)
+
+
+8.
+def is_scramble(s1, s2):
+    if sorted(s1) != sorted(s2):
+        return False
+
+    if s1 == s2:
+        return True
+
+    n = len(s1)
+
+    for i in range(1, n):
+        if (is_scramble(s1[:i], s2[:i]) and is_scramble(s1[i:], s2[i:])) or \
+           (is_scramble(s1[:i], s2[-i:]) and is_scramble(s1[i:], s2[:-i])):
+            return True
+
+    return False
+
+# Test case
+s1 = "great"
+s2 = "eatgr"
+output = is_scramble(s1, s2)
+
+# Output
+print("Output:", output)
+                                               
+
+
+                                                      
+     PATTERNS:
+
+1.n=int(input("enter no.of rows:"))
+num=1
+for i in range(n):
+    for j in range(i+1):
+        print(num,end=' ')
+        num = num+1
+print()
+
+
+OUTPUT:
+enter no.of rows:5
+1 
+2 3 
+4 5 6 
+7 8 9 10 
+11 12 13 14 15 
+
+2.
+n = int(input("enter no.of rows:"))
+for i in range(n):
+    print('%'*(i+1))
+
+OUTPUT:
+enter no.of rows:3
+%
+%%
+%%%
+
+
+3.
+n = int(input("enter no.of rows:"))
+for i in range(n):
+    for j in range(i+1):
+        print(str(j+1),end=' ')
+    print()
+
+
+OUTPUT:
+enter no.of rows:5
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5 
+
+4.
+n = int(input("enter no.of rows:"))
+for i in range(n):
+    print(' '*(n-i-1),end='')
+    for j in range(i+1):
+        print(str(i+1-j),end=' ')
+    print()
+
+OUTPUT:
+enter no.of rows:4
+   1 
+  2 1 
+ 3 2 1 
+4 3 2 1 
+
+
+
+
